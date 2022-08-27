@@ -1,0 +1,172 @@
+body{
+    height: 100vh;
+    color: #fff;
+    background-color: rgb(31, 34, 34);
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-container{
+    border: 1px solid #ffffff;
+    box-shadow:0px 0px 2px 2px;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+/* MOBILE PHONE POTRAIT */
+@media only screen and (max-width: 480px) { 
+    .quiz-container{
+      width: 90%;
+    }
+
+
+}
+
+.start-text{
+    /* background-color: yellow ; */
+    text-transform: capitalize ;
+    width: 80%;
+    height: 80%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+
+/* MOBILE PHONE POTRAIT */
+@media only screen and (max-width: 480px) { 
+    .start-text{
+        font-size: 18px;
+        width: 100%;
+        height: 70%;
+        align-items: center;
+    }
+
+    #start-button{
+        width: 80%;
+        height: 30px;
+    }
+
+}
+
+.start-paragraph{
+    text-align: center;
+}
+
+.start-button{
+    width: 40%;
+    height: 50px;
+}
+
+.score-container{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#score{
+    width: 80px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #ffffff;
+
+}
+
+.score-h3{
+    color: pink;
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+
+
+}
+
+
+.question-container{
+    width: 90%;
+    height: 30%;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.questions{
+    width: 99%;
+    height: 99%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-container{
+    height: 50%;
+    width: 80%;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+@media only screen and (max-width: 480px) { 
+      .answer-container{
+          width: 90%;
+          height: 40%;
+      }
+}
+
+
+button{
+    border: 2px solid white;
+    color: rgb(94, 94, 245);
+    background: transparent;
+    width: 70%;
+    height: 40%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 480px) { 
+    button{
+        width: 100%;
+        height: 35%;
+    }
+}
+
+.hide{ 
+    display: none;
+ }
+
+p{
+    margin: 0;
+}
+
+
+
+
