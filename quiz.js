@@ -1,53 +1,128 @@
-let questions = [
+const questions = [
   {
-      question: 'what is my name',
-      a: "musiliu", 
-      b: "morzook",
-      correct: 'morzook',
-  },
-  {
-      question: "Where is your home",
-      a: "abeokuta", 
-      b: "lagos",
-      correct: 'abeokuta',
-
-  },
-  {
-      question: "What is your age",
-      a: '33', 
-      b: "35",
-      correct: '35',
-  },
-  {
-      question: "What is 2 + 2",
-      a: "4", 
-      b: "88",
-      correct: '4',
-  },
-  {
-    question: 'who is nigeria press',
-    a: "bubu", 
-    b: "jona",
-    correct: 'bubu',
+    question: 'which is the correct spelling?',
+    a: "hippopotamus", 
+    b: "hipoppotamus",
+    correct: 'HIPPOPOTAMUS',
 },
 {
-    question: "where is olumo",
-    a: "itoku", 
-    b: "ikija",
-    correct: 'ikija',
+    question: "which word is the opposite of comfortless?",
+    a: "ciliary", 
+    b: "cozy",
+    correct: 'COZY',
 
 },
 {
-    question: "What is your logo",
-    a: 'ram', 
-    b: "chicken",
-    correct: 'ram',
+    question: "Which Word Is The Opposite Of Astute?",
+    a: 'gullible', 
+    b: "careful",
+    correct: 'GULLIBLE',
 },
 {
-    question: "your person",
-    a: "calm", 
-    b: "rage",
-    correct: 'calm',
+    question: "Which word is the opposite of detain?",
+    a: "release", 
+    b: "silence",
+    correct: 'RELEASE',
+},
+{
+  question: 'which word is similar to smite?',
+  a: "flee", 
+  b: "strike",
+  correct: 'STRIKE',
+},
+{
+  question: "which word is opposite of sapient?",
+  a: "simple", 
+  b: "hunched",
+  correct: 'SIMPLE',
+
+},
+{
+  question: "Which word is the opposite of assure?",
+  a: 'quiet', 
+  b: "alarm",
+  correct: 'ALARM',
+},
+{
+  question: "which word is similar to hinder?",
+  a: "loose", 
+  b: "check",
+  correct: 'CHECK',
+},
+{
+  question: 'which word is similar to miserable?',
+  a: "unhappy", 
+  b: "wrong",
+  correct: 'UNHAPPY',
+},
+{
+  question: "which word is similar to banish?",
+  a: "exile", 
+  b: "hate",
+  correct: 'EXILE',
+
+},
+{
+  question: "Which Word is the opposite of brazen?",
+  a: 'NOISY', 
+  b: "BASHFUL",
+  correct: 'BASHFUL',
+},
+{
+  question: "Which word is similar to fetter?",
+  a: "persist", 
+  b: "hamper",
+  correct: 'HAMPER',
+},
+{
+question: 'which word is similar to corner?',
+a: "trap", 
+b: "paint",
+correct: 'TRAP',
+},
+{
+question: "which word is opposite of maladrous?",
+a: "delicious", 
+b: "fragrant",
+correct: 'FRAGRANT',
+
+},
+{
+question: "Which word is similar to abject?",
+a: 'despondent', 
+b: "desire",
+correct: 'DESPONDENT',
+},
+{
+question: "which word is similar to imply?",
+a: "stab", 
+b: "suggest",
+correct: 'SUGGEST',
+},
+{
+  question: 'which word is the opposite of germane?',
+  a: "irrelevant", 
+  b: "indifferent",
+  correct: 'IRRELEVANT',
+},
+{
+  question: "which word is the opposite of zenith?",
+  a: "nadir", 
+  b: "apex",
+  correct: 'NADIR',
+
+},
+{
+  question: "Which Word is similar to cheat?",
+  a: 'stingy', 
+  b: "defraud",
+  correct: 'DEFRAUD',
+},
+{
+  question: "Which word is similar to tart?",
+  a: "acid", 
+  b: "law",
+  correct: 'ACID',
 },
 ];
 
@@ -56,6 +131,7 @@ const quiz = document.getElementById('quiz');
 let quizContainer = document.querySelector('.quiz-container')
 const questionEl = document.getElementById('questions');
 const scoresContainer = document.querySelector('.score-container');
+const scoreBox = document.querySelector('.score');
 const scores = document.getElementById('score-h3');
 const answerEl = document.querySelectorAll('.answers');
 const questionContainer= document.querySelector('.question-container');
@@ -74,11 +150,12 @@ loadQuiz()
 
 startContainer.classList.remove('hide')
 startBtn.classList.remove('hide');
- startBtn.addEventListener('click', startQuiz);
-scoresContainer.classList.add('hide')
- questionContainer.classList.add('hide');
- answerContainer.classList.add('hide');
+scoresContainer.classList.remove('hide')
+// scoreBox.classList.add('hide')
+questionContainer.classList.add('hide');
+answerContainer.classList.add('hide');
 
+startBtn.addEventListener('click', startQuiz);
 
    function startQuiz() {
      if (true) {
@@ -93,52 +170,51 @@ function loadQuiz() {
 scoresContainer.classList.remove('hide')
 answerContainer.classList.remove('hide')
 
+let unusedQuestions = [...questions];
+
     let randomQuizData = function () {
-      return questions [Math.floor(Math.random()*questions.length )]
+      if (unusedQuestions.length === 0) {
+        unusedQuestions = [...questions];
+      }
+    let randomIndex = Math.floor(Math.random() * unusedQuestions.length)
+    let question = unusedQuestions[randomIndex];
+    unusedQuestions.splice(randomIndex,1)
+    return question;
     }
-        let y = randomQuizData()
+
+    let question = randomQuizData()
         scores.innerText = score;
-        questionEl.innerText = y.question;
-         a.innerText = y.a;
-         b.innerText = y.b;
-         answer = y.correct;
+        questionEl.innerText = question.question;
+         a.innerText = question.a;
+         b.innerText = question.b;
+         answer = question.correct;
          return answer
   }
-
-let correctAnswer = answer;
-
-answerContainer.addEventListener('click', (e) => {
-  let correctAnswer = answer ;
-console.log(correctAnswer);
-  let clickedBtn = e.target;
-  if (answer) {
-    if (correctAnswer === clickedBtn.innerText) {
-      score++
-  }
-  currentQuiz++
-
-  if(currentQuiz < questions.length) {
+  
+  
+  for (let i = 0; i < answerEl.length; i++) {
+    answerEl[i].addEventListener('click', (e) => {
+      let correctAnswer = answer ;
+      let clickedBtn = e.target;
+      if (answer) {
+        if (correctAnswer === clickedBtn.innerText) {
+        score++
+          }
+            currentQuiz++
+  if(currentQuiz < 10) {
     loadQuiz()
 } else {
     quiz.innerHTML = 
     `
-    <h2>You answered ${score} out of ${questions.length} questions correctly</h2>
-
+    <h2>You answered ${score} out of ${10} questions correctly</h2>
     <button onclick="location.reload()">Play Again</button>
     `
 }
 }
 })
+}
+
 
 
 
  
-
-
- 
-
-
-
-
-
-
